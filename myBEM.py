@@ -42,7 +42,7 @@ def read_data_from_txt(file_name):
     r_R,
     c_R,
     beta,
-) = read_data_from_txt("data.txt")
+) = read_data_from_txt("propeller1.txt")
 
 density = 1
 
@@ -131,7 +131,6 @@ for _ in range(1, MAXITER + 1):
     b = bnew
 a_vect.append(a)
 b_vect.append(b)
-print(relative_velocity)
 
 print(f"total thrust= {total_thrust}")
 print(f"total thrust coefficient= {total_thrust_coefficient}")

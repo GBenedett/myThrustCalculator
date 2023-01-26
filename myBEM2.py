@@ -92,7 +92,7 @@ def plot_data(
         label="b",
     )
     plt.xlabel("Chi")
-    plt.ylabel("a")
+    plt.ylabel("a, b")
     plt.title("a vs Chi")
     plt.legend()
     plt.show()
@@ -108,7 +108,7 @@ def plot_data(
     r_R,
     c_R,
     beta,
-) = read_data_from_txt("data.txt")
+) = read_data_from_txt("propeller1.txt")
 
 density = 1
 
@@ -187,13 +187,17 @@ a_vect.append(a)
 b_vect.append(b)
 
 thrust_coefficient_distribution = (thrust_distribution) / (
-    density * rotational_velocity**2 * (radius * 2) ** 2
+    density * rotational_velocity**2 * (radius * 2) ** 4
 )
-total_thrust_coefficient = (r_R[1] - r_R[0]) * np.sum(thrust_coefficient_distribution)
-total_thrust = (r_R[1] - r_R[0]) * np.sum(thrust_distribution)
 
-print(total_thrust)
-print(total_thrust_coefficient)
+total_thrust = (r_R[1] - r_R[0]) * np.sum(thrust_distribution)
+total_thrust_coefficient = total_thrust / (
+    density * rotational_velocity**2 * (2 * radius) ** 4
+)
+# total_thrust_coefficient = (r_R[1] - r_R[0]) * np.sum(thrust_coefficient_distribution)
+
+print(f"total thrust= {total_thrust}")
+print(f"total thrust coefficient= {total_thrust_coefficient}")
 
 plot_data(
     r_R,

@@ -1,0 +1,18 @@
+#settings
+free_stream_velocity = 10
+rotational_velocity = 27
+radius = 2.7432
+blades_number = 2
+
+#geometrical values
+#r/R    c/R     beta
+0.185   0.116   39.7
+0.222   0.121   37.6
+0.333   0.132   32.3
+0.444   0.134   27.8
+0.555   0.131   24.4
+0.666   0.119   21.8
+0.777   0.100   19.9
+0.888   0.075   18.3
+0.944   0.061   17.6
+1.0     0.001   0.1

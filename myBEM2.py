@@ -45,42 +45,44 @@ def plot_data(
     Cl,
     c_R,
 ):
-    fig, axs = plt.subplots(2, 1, figsize=(10, 10))
+
+    fig, axs = plt.subplots(2, 1, figsize=(10, 7))
+    plt.subplots_adjust(hspace=0.4)
     axs[0].plot(r_R, thrust_distribution)
     axs[0].set_xlabel("Adimensional Radius")
     axs[0].set_ylabel("Thrust")
     axs[0].set_title("Thrust vs Adimensional Radius")
-
+    f1 = plt.figure(1)
     axs[1].plot(r_R, thrust_coefficient_distribution)
     axs[1].set_xlabel("Adimensional Radius")
     axs[1].set_ylabel("Thrust coefficient")
     axs[1].set_title("Thrust coefficient vs Adimensional Radius")
-    plt.show()
 
+    f2 = plt.figure(2)
     plt.plot(r_R, beta, label="beta")
     plt.plot(r_R, alpha, label="alpha")
     plt.plot(r_R, phi, label="phi")
     plt.xlabel("Adimensional Radius")
     plt.ylabel("Angles")
-    plt.title("Beta vs Adimensional Radius")
+    plt.title("Angles vs Adimensional Radius")
     plt.legend()
-    plt.show()
 
+    f3 = plt.figure(3)
     plt.plot(r_R, Cd, label="$C_D$")
     plt.plot(r_R, Cl, label="$C_L$")
     plt.xlabel("Adimensional Radius")
     plt.ylabel("$C_D$ $C_L$")
     plt.title("Cd vs Adimensional Radius")
     plt.legend()
-    plt.show()
 
+    f4 = plt.figure(4)
     plt.plot(r_R, c_R)
     plt.xlabel("Adimensional Radius")
     plt.ylabel("Chord")
     plt.ylim((0, 0.8))
     plt.title("Chord vs Adimensional Radius")
-    plt.show()
 
+    f5 = plt.figure(5)
     plt.plot(
         (rotational_velocity * r_R * radius / free_stream_velocity),
         np.transpose(a_vect),
@@ -93,7 +95,7 @@ def plot_data(
     )
     plt.xlabel("Chi")
     plt.ylabel("a, b")
-    plt.title("a vs Chi")
+    plt.title("correction factors vs adimensional radius")
     plt.legend()
     plt.show()
 
